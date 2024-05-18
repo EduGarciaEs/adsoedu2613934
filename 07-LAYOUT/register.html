@@ -15,7 +15,7 @@
             <a href="javascript:;" class="btn-back">
                 <img src="images/btn-back.svg" alt="Back">
             </a>
-            <img src="images/title-login.png" alt="Login">
+            <img src="images/title-register.png" alt="Login">
             <svg class="btn-burger" viewBox="0 0 100 100" width="80">
                 <path
                       class="line top"
@@ -45,12 +45,21 @@
                 </a>
             </menu>
         </nav>
-        <section>
+        <section class="scroll">
             <form action="dashboard.html" method="get">
                 <div class="form-group">
-                    <img class="mask" src="images/photo.png" alt="Photo" class="">
+                    <img id="upload" class="mask" src="images/bg-upload-photo.svg" alt="Photo">
+                    <img class="border" src="images/shape-border.svg" alt="border" >
+                    <input id="photo" type="file" name="photo" accept="image/*">
                 </div>
-                <div>
+                <div class="form-group">
+                    <label>
+                        <img src="images/ico-email.png" alt="Email">
+                        Full Name:
+                    </label>
+                    <input type="email" name="email" placeholder="johnwick@gmail.com">
+                </div>
+                <div class="form-group">
                     <label>
                         <img src="images/ico-email.png" alt="Email">
                         Email:
@@ -59,8 +68,15 @@
                 </div>
                 <div class="form-group">
                     <label>
+                        <img src="images/ico-email.png" alt="Email">
+                        Phone Number:
+                    </label>
+                    <input type="email" name="email" placeholder="johnwick@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label>
                         <img src="images/ico-pass.png" alt="Password">
-                        Password:
+                        Birth Date:
                     </label>
                     <img class="ico-eye" src="images/ico-eye.png" alt="Eye">
                     <input type="password" name="password" placeholder="dontmesswithmydog">
@@ -69,9 +85,7 @@
                     <button type="submit">
                         <img src="images/content-btn-login.png" alt="Login">
                     </button>
-                    <a href="">Forgot your password ?</a>
                 </div>
-
             </form>
         </section>
     </main>
@@ -97,9 +111,20 @@
                 $togglePass = !$togglePass
             })
             // - - - - - - - - - - - - - - - 
+            $('.border').click(function (e) {
+                $('#photo').click()
+            })
+            $('#photo').change(function(e){
+                e.preventDefault()
+                let reader= new FileReader()
+                reader.onload=function(evt) {
+                    $('#upload').attr('src',event.target.result)
+                }
+                reader.readAsDataURL(this.files[0])
+            })
         })
     </script>
-
+        // - - - - - - - - - - - - - - -       
 </body>
 </html>
 

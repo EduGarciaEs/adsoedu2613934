@@ -43,14 +43,23 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-
+   
     main {
         background: url(../images/bg-main.png) no-repeat center;
         height: 800px;
         overflow: hidden;
         position: relative;
         width: 400px;
+        
+        section.scroll {
+            scrollbar-width: none;
+            overflow-y: scroll;
+            height: 640px;
+    
+        }
+    
 
+    
         header {
             position: relative;
             z-index: 3;
@@ -357,6 +366,9 @@ main.catalogue {
         overflow-y: scroll;
         height: 640px;
 
+    }
+
+
         form {
             display: flex;
             justify-content: center;
@@ -491,7 +503,7 @@ main.catalogue {
             }
 
         }
-    }
+    
 }
 
 
@@ -562,7 +574,12 @@ main.login {
             pointer-events: none;
         }
     }
+
+
+   
     section {
+        overflow-y: scroll;
+        scroll-behavior: smooth;
         form {
             display: flex;
             flex-direction: column;
@@ -630,6 +647,13 @@ main.login {
                 a:is(:active) {
                     background: url(../images/btn-view-active.png) no-repeat center;
                 }
+
+                .border {
+                    cursor:pointer;
+                    position:absolute;
+                    left:62px;
+                    top:3px;
+                }
                 
                 
                 .mask {
@@ -641,8 +665,16 @@ main.login {
                     height: 200px;
                     width: 200px;
                 }
+                #upload {
+                    margin-bottom: 3rem;
+                    cursor:pointer;
+                }
+                #photo {
+                    display: none;
+                }
                 
             }
         }
     }
+
 }
