@@ -678,3 +678,56 @@ main.login {
     }
 
 }
+
+/* - - - - - - - - - - - - - - - - */
+/* USERS
+/* - - - - - - - - - - - - - - - - */
+
+
+
+main.users {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        article {
+            background: url(../images/users-card.png) no-repeat center;
+            height: 100px;
+            width: 340px;
+            display: flex;
+            gap: 0.6rem;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            aside {
+                display: flex;
+                flex-direction: column;
+                margin-right: 5px;
+                span.rows {
+                    font-size: 400;
+                }
+            }
+            a:is(:link, :visited) {
+                background: url(../images/mini-rectangle.png) no-repeat center;
+                position: absolute;
+                bottom: 10px;
+                height: 30px;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                justify-content: center;
+                right: 30px;
+                width: 89px;
+                
+            }
+        }
+    }
+}
