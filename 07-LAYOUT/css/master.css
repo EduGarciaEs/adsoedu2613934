@@ -536,7 +536,6 @@ main.view-game {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                border: 2px solid red;
                 gap: 1rem;
                 margin-bottom: 0.8 rem;
                 div.column {
