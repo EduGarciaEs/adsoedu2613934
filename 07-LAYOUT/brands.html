@@ -13,8 +13,8 @@
 <body>
     <main class="brands">
         <header>
-        <a href="">
-            <img src="images/arrow-back.png" alt="">
+        <a href="javascript:;"class="btn-back">
+            <img src="images/arrow-back.png" alt="Back">
         </a>
          <img src="images/brands-title.png" alt="Logo">
          <svg class="btn-burger" viewBox="0 0 100 100" width="80">
@@ -29,6 +29,23 @@
                   d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
         </svg>
         </header>
+        <nav class="nav">
+            <img src="images/title-menu.svg" alt="Menu" class="title-menu">
+            <menu>
+                <a href="login.html">
+                    <img src="images/ico-login.svg" alt="Login">
+                    Login
+                </a>
+                <a href="register.html">
+                    <img src="images/ico-register.svg" alt="Register">
+                    Register
+                </a>
+                <a href="catalogue.html">
+                    <img src="images/ico-catalogue.svg" alt="Catalogue">
+                    Catalogue
+                </a>
+            </menu>
+        </nav>
         <section class="ed">
                 <img src="images/add-icon.svg" alt="Users">
         </section>
@@ -129,6 +146,17 @@
   
         </div>
     </main>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+            // - - - - - - - - - - - - - - - 
+            $('header').on('click', '.btn-burger', function () {
+                $(this).toggleClass('active')
+                $('.nav').toggleClass('active')
+            })
+            // - - - - - - - - - - - - - - - 
+        })
+    </script>
 </body>
 </html>
 

@@ -31,6 +31,31 @@
               d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
     </svg>
     </header>
+    <nav class="nav">
+        <img src="images/group-user.svg">
+        <menu>
+            <section>
+                
+                    <div >
+                        <label>
+                            <a href="my-profile.html">My Profile</a>
+                        </label>   
+                     </div>
+
+            <div >
+                <label>
+                    <a href="dashboard.html">Dashboard</a>
+                </label> 
+            </div>
+            
+                <div >
+                    <label>
+                        <a href="">LogOut</a>
+                    </label> 
+                </div>
+        </section>
+        </menu>
+    </nav>
       
         <div class="edw">
             <img src="images/group-user.svg">
@@ -52,9 +77,23 @@
 
 
     </main>
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+              // - - - - - - - - - - - - - - - 
+              $('header').on('click', '.btn-burger', function () {
+                  $(this).toggleClass('active')
+                  $('.nav').toggleClass('active')
+              })
+              // - - - - - - - - - - - - - - - 
+          })
+      </script>
 
     
 </body>
+
+
 </html>
 
 
