@@ -22,4 +22,9 @@ class Category extends Model
         'description',
        
     ];
+
+    // Rela
+    public function tenis(){
+        return $this->belongsTo('App\Models\Tenis');
+        }
 }

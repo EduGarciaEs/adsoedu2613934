@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,9 +19,6 @@ class DatabaseSeeder extends Seeder
             TenisSeeder::class
             
         ]);
-        /*User::factory()->create([
-            'fullname' => 'Test User',
-            'email' => 'test@example.com',
-        ]);*/
+        User::factory(100)->create();
     }
 }

@@ -50,4 +50,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    // Relationship: with game
+    public function tenis(){
+        return $this->hasMany('App\Models\Tenis');
+        }
+
+    // Relationship: with game
+    public function collections(){
+        return $this->belongsTo('App\Models\Collection');
+        }
 }
+
+    
+

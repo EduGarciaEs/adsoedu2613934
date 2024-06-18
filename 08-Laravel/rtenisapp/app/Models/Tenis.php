@@ -27,4 +27,21 @@ class Tenis extends Model
         'description',
 
     ];
+
+    // Relationship: Tenis belongs to user
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+        }
+
+    // Relationship: Tenis belongs to category
+    public function category(){
+        return $this->belongsTo('App\Models\Category');
+        }
+
+     // Relationship: Tenis belongs to collection
+     public function collection(){
+        return $this->belongsTo('App\Models\Collection');
+        }
+
+
 }
