@@ -24,11 +24,11 @@
 <nav class="nav">
     <img src="images/title-menu.svg" alt="Menu" class="title-menu">
     <menu>
-        <a href="login.html">
+        <a href="{{route('login')}}">
             <img src="images/ico-login.svg" alt="Login">
             Login
         </a>
-        <a href="register.html">
+        <a href="{{url('register')}}" >
             <img src="images/ico-register.svg" alt="Register">
             Register
         </a>

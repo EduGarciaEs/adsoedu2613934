@@ -39,7 +39,7 @@
         </a>
     </menu>
 </nav>
-{{-- @include('layouts.menu-burguer') --}}
+@include('layouts.menu-burguer')
 <section>
     <form action="{{route('login')}}" method="post">
         @csrf
@@ -67,10 +67,9 @@
 
     </form>
 </section>
-@endsection
+</main>
 
-@section('js')
-
+<script src="js/jquery-3.7.1.min.js"></script>
 <script>
 $(document).ready(function () {
     // - - - - - - - - - - - - - - - 
@@ -94,7 +93,6 @@ $(document).ready(function () {
 })
 </script>
 @endsection
-
 
 
 

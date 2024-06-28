@@ -1,7 +1,7 @@
 
 @extends('layouts.app')
 @section('title','TenisApp-Register')
-@section('class','login')
+@section('class','register')
 
 @section('content')
         <header>
@@ -39,7 +39,7 @@
             </menu>
         </nav>
         <section class="scroll">
-            <form action="{{route('dashboard')}}" method="post" enctype="multipart/form-data">
+            <form action="dashboard.html" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <img id="upload" class="mask" src="images/bg-upload-photo.svg" alt="Photo">
                     <img class="border" src="images/shape-border.svg" alt="border" >
@@ -104,7 +104,7 @@
         </section>
     </main>
     @endsection
-    @section('js')
+    @section
     <script src="js/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
