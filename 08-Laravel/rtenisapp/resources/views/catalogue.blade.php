@@ -4,9 +4,9 @@
 @section('class','catalogue')
 
 @section('content')
-<header>
+    <header>
     <a href="" class="">
-        <img src="">
+        <img src="images/">
     </a>
     <img src="images/logo-top.png" alt="Logo" class="logo-top">
     <svg class="btn-burger" viewBox="0 0 100 100" width="80">
@@ -22,22 +22,30 @@
     </svg>
 </header>
 <nav class="nav">
-    <img src="images/title-menu.svg" alt="Menu" class="title-menu">
-    <menu>
-        <a href="{{route('login')}}">
-            <img src="images/ico-login.svg" alt="Login">
-            Login
-        </a>
-        <a href="{{url('register')}}" >
-            <img src="images/ico-register.svg" alt="Register">
-            Register
-        </a>
-        <a href="catalogue.html">
-            <img src="images/ico-catalogue.svg" alt="Catalogue">
-            Catalogue
-        </a>
-    </menu>
-</nav>
+            <img src="images/group-user.svg">
+            <menu>
+                <section>
+                    
+                        <div >
+                            <label>
+                                <a href="{{url('login')}}">Login</a>
+                            </label>   
+                         </div>
+ 
+                <div >
+                    <label>
+                        <a href="{{url('register')}}">Register</a>
+                    </label> 
+                </div>
+                
+                    <div >
+                        <label>
+                            <a href="{{url('catalogue')}}">Catalogue</a>
+                        </label> 
+                    </div>
+            </section>
+            </menu>
+        </nav>
 <section class="scroll">
     <form action="" method="post">
         <input type="text" placeholder="Filter" maxlength="18">

@@ -23,23 +23,22 @@
     </svg>
 </header>
 <nav class="nav">
-    <img src="images/title-menu.svg" alt="Menu" class="title-menu">
-    <menu>
-        <a href="login.html">
-            <img src="images/ico-login.svg" alt="Login">
-            Login
-        </a>
-        <a href="register.html">
-            <img src="images/ico-register.svg" alt="Register">
-            Register
-        </a>
-        <a href="catalogue.html">
-            <img src="images/ico-catalogue.svg" alt="Catalogue">
-            Catalogue
-        </a>
-    </menu>
-</nav>
-{{-- @include('layouts.menu-burguer') --}}
+        <img src="images/title-menu.svg" alt="Menu" class="title-menu">
+        <menu>
+            <a href="{{ url('login') }}">
+                <img src="images/ico-login.svg" alt="Login">
+                Login
+            </a>
+            <a href="{{ url('register') }}">
+                <img src="images/ico-register.svg" alt="Register">
+                Register
+            </a>
+            <a href="{{ url('catalogue') }}">
+                <img src="images/ico-catalogue.svg" alt="Catalogue">
+                Catalogue
+            </a>
+        </menu>
+    </nav>
 <section>
     <form action="{{route('login')}}" method="post">
         @csrf

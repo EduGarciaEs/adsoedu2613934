@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('welcome', function () {
     return view('welcome');
 });
 
@@ -17,6 +17,10 @@ Route::get('login', function () {
 
 Route::get('register', function () {
     return view('register');
+});
+
+Route::get('my-profile', function () {
+    return view('my-profile');
 });
 
 

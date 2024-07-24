@@ -21,23 +21,23 @@
                       d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
             </svg>
         </header>
-        <nav class="nav">
-            <img src="images/title-menu.svg" alt="Menu" class="title-menu">
-            <menu>
-                <a href="login.html">
-                    <img src="images/ico-login.svg" alt="Login">
-                    Login
-                </a>
-                <a action="{{route('register')}}" method="post">
-                    <img src="images/ico-register.svg" alt="Register">
-                    Register
-                </a>
-                <a href="catalogue.html">
-                    <img src="images/ico-catalogue.svg" alt="Catalogue">
-                    Catalogue
-                </a>
-            </menu>
-        </nav>
+      <nav class="nav">
+        <img src="images/title-menu.svg" alt="Menu" class="title-menu">
+        <menu>
+            <a href="{{ url('login') }}">
+                <img src="images/ico-login.svg" alt="Login">
+                Login
+            </a>
+            <a href="{{ url('register') }}">
+                <img src="images/ico-register.svg" alt="Register">
+                Register
+            </a>
+            <a href="{{ url('catalogue') }}">
+                <img src="images/ico-catalogue.svg" alt="Catalogue">
+                Catalogue
+            </a>
+        </menu>
+    </nav>
         <section class="scroll">
             <form action="{{route('dashboard')}}" method="post" enctype="multipart/form-data">
                 <div class="form-group">
