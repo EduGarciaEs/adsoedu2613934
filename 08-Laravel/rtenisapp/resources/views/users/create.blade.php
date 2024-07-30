@@ -1,7 +1,7 @@
 
 @extends('layouts.app')
-@section('title','TenisApp-Register')
-@section('classMain','register')
+@section('title','TenisApp-Create User')
+@section('class','add register')
 
 @section('content')
         <header>
@@ -140,4 +140,8 @@
         })
     </script>
     @endsection
-        
+
+
+
+
+
