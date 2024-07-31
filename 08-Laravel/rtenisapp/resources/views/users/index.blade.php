@@ -49,6 +49,9 @@
                             <a href="javascript:;">
                                 <img src="../images/ico-trash.svg" alt="Delete">
                             </a>
+                            <a href="javascript:;" class="delete" data-f2ullname="{{$user->fullname}}">
+                             <img src="{{asset('images/ico-trash.svg') }}" alt="Delete">
+                            </a>
                         </figure>
                 </article>
                 
