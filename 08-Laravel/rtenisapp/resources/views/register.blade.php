@@ -1,7 +1,9 @@
 
+
 @extends('layouts.app')
 @section('title','TenisApp-Register')
 @section('classMain','register')
+
 
 @section('content')
         <header>
@@ -39,7 +41,7 @@
             </menu>
         </nav>
         <section class="scroll">
-            <form action="dashboard.html" method="post" enctype="multipart/form-data">
+            <form action="dashboard.html" method="get">
                 <div class="form-group">
                     <img id="upload" class="mask" src="images/bg-upload-photo.svg" alt="Photo">
                     <img class="border" src="images/shape-border.svg" alt="border" >
@@ -50,49 +52,35 @@
                         <img src="images/ico-email.png" alt="Text">
                         Full Name:
                     </label>
-                    <input type="text" name="fullname" placeholder="John Wick">
+                    <input type="text" name="email" placeholder="John Wick">
                 </div>
                 <div class="form-group">
                     <label>
                         <img src="images/ico-email.png" alt="Email">
-                        Document:
+                        Email:
                     </label>
-                    <input type="number" name="document" placeholder="987654321">
+                    <input type="email" name="email" placeholder="johnwick@gmail.com">
                 </div>
                 <div class="form-group">
                     <label>
                         <img src="images/ico-email.png" alt="Number">
                         Phone Number:
                     </label>
-                    <input type="number" name="phone" placeholder="3101231231">
+                    <input type="text" name="email" placeholder="3101231231">
                 </div>
                 <div class="form-group">
                     <label>
                         <img src="images/ico-pass.png" alt="Text">
-                        Birthdate:
+                        Birth Date:
                     </label>
-                    <input type="date" name="birthdate" placeholder="dd/mm/aa">
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        <img src="images/ico-email.png" alt="Text">
-                        Gender:
-                    </label>
-                    <input type="text" name="gender" placeholder="M-F">
-                </div>
-                <div class="form-group">
-                    <label>
-                        <img src="images/ico-email.png" alt="E-mail">
-                        Email:
-                    </label>
-                    <input type="email" name="email" placeholder="Johnwick@gmail.com">
+                    <input type="date" name="date" placeholder="dd/mm/aa">
                 </div>
                 <div class="form-group">
                     <label>
                         <img src="images/ico-pass.png" alt="Text">
                         Password:
                     </label>
+                    
                     <input type="password" name="email" placeholder="dontmessmydog">
                 </div>
                 <div class="form-group">
@@ -138,6 +126,9 @@
                 reader.readAsDataURL(this.files[0])
             })
         })
-    </script>
-    @endsection
+  </script>
+  @endsection     
+
+
+    
         
