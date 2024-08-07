@@ -52,7 +52,7 @@ class UserController extends Controller
         
         if($user->save()){ 
          
-            return redirect('users') ->with('message','The user',$user->fullname,'was seccesfully added!');
+            return redirect('users') ->with('message','The user :'.$user->fullname.'was seccesfully added!');
 
     }
 }
@@ -84,7 +84,7 @@ class UserController extends Controller
             $photo=time(). '.' .$request->photo->extension();
             $request->photo->mov(public_path('images'),$photo);
         }else {
-            $photo = $request->photo=originphoto:
+            $photo = $request->originphoto;
         }
 
         $user->document=$request->document;
@@ -98,7 +98,8 @@ class UserController extends Controller
         if($user->save()){ 
          
             return redirect('users') 
-                   ->with('message','The user',$user->fullname,'was seccesfully added!');
+                   ->with('message','The user: '.$user->fullname.'was succesfully updated!');
+        }
     }
 
     /**
