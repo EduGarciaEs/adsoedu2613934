@@ -73,18 +73,20 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
+        return view('users.edit')
+               ->with('user',$user);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserRequest $request, User $user)
+    public function update(Request $request, User $user)
     {
         if($request->hasFile('photo')){
             $photo=time(). '.' .$request->photo->extension();
-            $request->photo->mov(public_path('images'),$photo);
+            $request->photo->move(public_path('images'),$photo);
         }else {
-            $photo = $request->originphoto;
+            $photo = $request->originPhoto;
         }
 
         $user->document=$request->document;
@@ -92,7 +94,7 @@ class UserController extends Controller
         $user->gender=$request->birthdate;
         $user->photo=$photo;
         $user->phone=$request->phone;
-        $user->phone=$request->email;
+        $user->email=$request->email;
         $user->password=bcrypt($request->password);
         
         if($user->save()){ 

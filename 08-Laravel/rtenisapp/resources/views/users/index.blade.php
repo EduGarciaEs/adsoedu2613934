@@ -22,7 +22,7 @@
                     d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
             </svg>
         </header>
-@include('menuburger')
+        @include('menuburguer')
         </nav>
         <section>
         @foreach ($users as $user )
@@ -41,17 +41,18 @@
                         </aside>
                         <figure class="actions">
                             <a href="{{ url ('users/' . $user->id) }}">
-                                <img src="../images/ico-search.svg" alt="Show">
+                                <img src="{{asset('images/ico-search.svg')}}" alt="Show">
                             </a>
                             <a href="{{ url ('users/' . $user->id . '/edit') }}">
-                                <img src="../images/ico-edit.svg" alt="Edit">
+                                <img src="{{asset('images/ico-edit.svg')}}" alt="Edit">
                             </a>
-                            <a href="javascript:;">
-                                <img src="../images/ico-trash.svg" alt="Delete">
-                            </a>
-                            <a href="javascript:;" class="delete" data-f2ullname="{{$user->fullname}}">
+                            <a href="javascript:;" class="delete" data-fullname="{{$user->fullname}}">
                              <img src="{{asset('images/ico-trash.svg') }}" alt="Delete">
                             </a>
+                            <form action="{{url('users/'.$user->id)}}" method="POST" style="display:none">
+                            @csrf
+                            @method('DELETE')
+                            </form>
                         </figure>
                 </article>
                 
@@ -76,6 +77,25 @@
                 $(this).toggleClass('active')
                 $('.nav').toggleClass('active')
             })
+
+            $('figure').on('click', '.delete', function() {
+                    $fullname = $(this).data('data-fullname')
+
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!" + $fullname,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        toast: true,
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $(this).next().submit()
+                        }
+                    })
+                });
 
             // $togglePass = false
             // $('section').on('click', '.ico-eye', function() {

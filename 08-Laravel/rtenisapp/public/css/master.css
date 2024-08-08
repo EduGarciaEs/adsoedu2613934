@@ -572,7 +572,10 @@ main.view-game {
 /* L O G I N  & REGISTER*/
 /* - - - - - - - - - - - - - - - - */
 main.login {
+    
     header {
+        width: max-content;
+
         .btn-back {
             visibility: hidden;
             pointer-events: none;

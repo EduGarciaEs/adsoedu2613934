@@ -2,7 +2,7 @@
 
 @extends('layouts.app')
 @section('title','TenisApp-Register')
-@section('classMain','register')
+@section('class','register')
 
 
 @section('content')
@@ -90,7 +90,6 @@
                 </div>
             </form>
         </section>
-    </main>
     @endsection
     @section
     <script src="js/jquery-3.7.1.min.js"></script>

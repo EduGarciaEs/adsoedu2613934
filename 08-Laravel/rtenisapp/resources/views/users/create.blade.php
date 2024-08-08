@@ -1,147 +1,158 @@
-
-@extends('layouts.app')
-@section('title','TenisApp-Create User')
+@extends ('layouts.app')
+@section('tittle','TenisApp- Create User')
 @section('class','add register')
 
+
 @section('content')
-        <header>
-            <a href="javascript:;" class="btn-back">
-                <img src="images/btn-back.svg" alt="Back">
-            </a>
-            <img src="images/title-register.png" alt="Login">
-            <svg class="btn-burger" viewBox="0 0 100 100" width="80">
-                <path
-                      class="line top"
-                      d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
-                <path
-                      class="line middle"
-                      d="m 70,50 h -40" />
-                <path
-                      class="line bottom"
-                      d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
-            </svg>
-        </header>
-        <nav class="nav">
-            <img src="images/title-menu.svg" alt="Menu" class="title-menu">
-            <menu>
-                <a href="login.html">
-                    <img src="images/ico-login.svg" alt="Login">
-                    Login
-                </a>
-                <a action="{{route('register')}}" method="post">
-                    <img src="images/ico-register.svg" alt="Register">
-                    Register
-                </a>
-                <a href="catalogue.html">
-                    <img src="images/ico-catalogue.svg" alt="Catalogue">
-                    Catalogue
-                </a>
-            </menu>
-        </nav>
-        <section class="scroll">
-            <form action="dashboard.html" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <img id="upload" class="mask" src="images/bg-upload-photo.svg" alt="Photo">
-                    <img class="border" src="images/shape-border.svg" alt="border" >
-                    <input id="photo" type="file" name="photo" accept="image/*">
-                </div>
-                <div class="form-group">
-                    <label>
-                        <img src="images/ico-email.png" alt="Text">
-                        Full Name:
-                    </label>
-                    <input type="text" name="fullname" placeholder="John Wick">
-                </div>
-                <div class="form-group">
-                    <label>
-                        <img src="images/ico-email.png" alt="Email">
-                        Document:
-                    </label>
-                    <input type="number" name="document" placeholder="987654321">
-                </div>
-                <div class="form-group">
-                    <label>
-                        <img src="images/ico-email.png" alt="Number">
-                        Phone Number:
-                    </label>
-                    <input type="number" name="phone" placeholder="3101231231">
-                </div>
-                <div class="form-group">
-                    <label>
-                        <img src="images/ico-pass.png" alt="Text">
-                        Birthdate:
-                    </label>
-                    <input type="date" name="birthdate" placeholder="dd/mm/aa">
-                </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<header>
+    <a href="{{ url('users') }}" class="btn-back">
+        <img src="{{ asset('images/btn-back.svg')}}" alt="Back">
+    </a>
+    <h1>Add</h1>
+    <svg class="btn-burger" viewBox="0 0 100 100" width="80">
+        <path
+            class="line top"
+            d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+        <path
+            class="line middle"
+            d="m 70,50 h -40" />
+        <path
+            class="line bottom"
+            d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+    </svg>
+</header>
+@include('menuburguer')
 
-                <div class="form-group">
-                    <label>
-                        <img src="images/ico-email.png" alt="Text">
-                        Gender:
-                    </label>
-                    <input type="text" name="gender" placeholder="M-F">
-                </div>
-                <div class="form-group">
-                    <label>
-                        <img src="images/ico-email.png" alt="E-mail">
-                        Email:
-                    </label>
-                    <input type="email" name="email" placeholder="Johnwick@gmail.com">
-                </div>
-                <div class="form-group">
-                    <label>
-                        <img src="images/ico-pass.png" alt="Text">
-                        Password:
-                    </label>
-                    <input type="password" name="email" placeholder="dontmessmydog">
-                </div>
-                <div class="form-group">
-                    <button type="submit">
-                        <img src="images/content-btn-login.png" alt="Login">
-                    </button>
-                </div>
-            </form>
-        </section>
-    </main>
-    @endsection
-    @section
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // - - - - - - - - - - - - - - - 
-            $('header').on('click', '.btn-burger', function () {
-                $(this).toggleClass('active')
-                $('.nav').toggleClass('active')
-            })
-            // - - - - - - - - - - - - - - - 
-            $togglePass = false
-            $('section').on('click', '.ico-eye', function () {
-    
-                !$togglePass ? $(this).next().attr('type', 'text')
-                             : $(this).next().attr('type', 'password')
-                             
-                !$togglePass ? $(this).attr('src', 'images/ico-eye-close.svg')
-                             : $(this).attr('src', 'images/ico-eye.svg')
+<section class="scroll">
+    <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <img id="upload" class="mask" src="{{ asset ('images/bg-upload-photo.svg') }}" alt="photo">
+            <img class="border" src="{{ asset ('images/borde.svg') }}" alt="border">
+            <input id="photo" type="file" name="photo" accept="image/*">
+        </div>
+        <div class="form-group">
+            <label>
+                <img src="{{ asset ('images/ico-document.svg') }}" alt="document">
+                Document:
+            </label>
+            <input type="text" name="document" placeholder="12323456" value="{{old('document')}}">
+        </div>
+        <div class="form-group">
+            <label>
+                <img src="{{ asset ('images/ico-name.svg') }}" alt="document">
+                Fullname:
+            </label>
+            <input type="text" name="fullname" placeholder="Rosa Perez" value="{{old('fullname')}}">
+        </div>
+        <div class="form-group">
+            <label>
+                <img src="{{ asset ('images/ico-gender.svg') }}" alt="gender">
+                Gender:
+            </label>
+            <input type="text" name="gender" placeholder="Female" value="{{old('gender')}}">
+        </div>
+        <div class="form-group">
+            <label>
+                <img src="{{ asset ('images/ico-email-register.svg') }}" alt="Email">
+                Email:
+            </label>
+            <input type="email" name="email" value="{{old('email')}}" placeholder="dirlortr@gmail.com">
+        </div>
+        <div class="form-group">
+            <label>
+                <img src="{{ asset ('images/ico-phone.svg') }}" alt="phone">
+                Phone Number:
+            </label>
+            <input type="text" value="{{old('phone')}}" name="phone" placeholder="320XXXXXXXX">
+        </div>
+        <div class="form-group">
+            <label>
+                <img src="{{ asset ('images/ico-birthday.svg') }}" alt="text">
+                Birth Date:
+            </label>
+            <input type="date" value="{{old('birthdate')}}" name="birthdate" placeholder="1980-10-10">
+        </div>
+        <div class="form-group">
+            <label>
+                <img src="{{ asset ('images/ico-password-register.svg') }}" alt="password">
+                Password:
+            </label>
+            <img class="ico-eye" src="{{ asset ('images/ico-eye-open.svg') }}" alt=" ">
+            <input type="password" name="password" placeholder="dontmesswithmydog">
+        </div>
+        <div class="form-group">
+            <label>
+                <img src="{{ asset ('images/ico-password-register.svg') }}" alt="password">
+                Confirm Password:
+            </label>
+            <img class="ico-eye" src="{{ asset ('images/ico-eye-open.svg') }}" alt=" ">
+            <input type="password" name="password_confirmation" placeholder="dontmesswithmydog">
+        </div>
+        <div class="form-group">
+            <button type="submit">
+                <img src="{{ asset ('images/content-btn-add.svg') }}" alt="add">
+            </button>
+        </div>
+    </form>
+</section>
+@endsection
 
-                $togglePass = !$togglePass
-            })
-            // - - - - - - - - - - - - - - - 
-            $('.border').click(function (e) {
-                $('#photo').click()
-            })
-            $('#photo').change(function(e){
-                e.preventDefault()
-                let reader= new FileReader()
-                reader.onload=function(evt) {
-                    $('#upload').attr('src',event.target.result)
-                }
-                reader.readAsDataURL(this.files[0])
-            })
+@section('js')
+<script>
+    $(document).ready(function () {
+
+        $('header').on('click', '.btn-burger', function(){
+        $(this).toggleClass('active')
+        $('.nav').toggleClass('active')
+    })
+    //----------------------------
+    $togglePass = false
+    $('section').on('click', '.ico-eye', function(){
+        !$togglePass ? $(this).next().attr('type', 'text')
+                    : $(this).next().attr('type', 'password')
+
+        !$togglePass ? $(this).attr('src', "{{ asset ('images/ico-eye.svg')}}")
+                    : $(this).attr('src', "{{asset('images/ico-eye-open.svg') }}")
+
+        $togglePass = !$togglePass
+
+    })
+     //----------------------------
+    $('.border').click(function(e) {
+        $('#photo').click()
+    })
+    $('#photo').change(function(e){
+        e.preventDefault()
+        let reader = new FileReader()
+        reader.onload = function(evt) {
+            $('#upload').attr('src', event.target.result)
+        }
+        reader.readAsDataURL(this.files[0])
+    })
+     //----------------------------
+    })
+</script>
+@if (count($errors->all()) > 0)
+@php $error = '' @endphp
+@foreach ($errors->all() as $message)
+        @php $error .= '<li>' . $message . '</li>' @endphp
+@endforeach
+
+<script>
+    $(document).ready(function(){
+        Swal.fire({
+            position: "top",
+            title: "ops!",
+            html: `@php echo $error @endphp`,
+            icon: "error",
+            toast: true,
+            showConfirmButton: true,
+            timer: 5000
         })
-    </script>
-    @endsection
+    });   
+</script>
+@endif
 
-
-
-
-
+@endsection
